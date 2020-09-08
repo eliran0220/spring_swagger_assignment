@@ -1,0 +1,47 @@
+.page-footer {
+    background-color: #2BBBAD;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    font-size: 30px;
+}
+
+.content{
+    overflow:hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: 0px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+}
+
+.formHolder{
+    overflow:hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: 0px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.result{
+    overflow-y: scroll;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    margin-top: 30;
+    margin-left: 0px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-height: 300px;
+    white-space: pre;
+}
+.span{
+    float:left;
+    margin-left:10px;
+}

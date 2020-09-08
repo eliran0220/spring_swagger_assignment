@@ -1,0 +1,111 @@
+<footer class="page-footer font-small blue pt-4 text-center">
+    Welcome! please choose your operation below.
+    <div class="container-fluid text-center text-md-left">
+      <div class="row">
+        <div class="col-md-6 mt-md-0 mt-3">
+        </div>
+        <hr class="clearfix w-100 d-md-none pb-3">
+      </div>
+    </div>
+    <div class="footer-copyright text-center py-3">© 2020 Made by:
+      <a href="https://github.com/eliran0220"> Eliran Darshan</a>
+    </div>
+  
+  </footer>
+  <div class ="content">
+      <div class ="span">    
+          <button (click) ="showCreateItemForm()"  type="button" class="btn btn-success">Create item</button>
+      </div>
+      <div class ="span">
+        <button (click) ="showDeleteItemForm()" type="button" class="btn btn-danger">Delete item</button>
+      </div>
+      <div class = "span">      
+          <button (click) = "showReadItemForm()" type="button" class="btn btn-primary">Read item</button>
+      </div>
+
+      <div class="span">
+        <button (click) = "showDepositForm()" type="button" class="btn btn-warning">Deposit quantity to item</button>
+      </div>
+      <div class = "span">     
+           <button (click) = "showWithdrawForm()" type="button" class="btn btn-info">Withdraw quantity from item</button>
+      </div>
+      <div class = "span">     
+        <button (click) = "onShowItems()" type="button" class="btn btn-dark">Read all items</button>
+   </div>
+  </div>
+
+<form *ngIf="deleteItemVisible"  class="text-center formHolder" #deleteItemForm="ngForm" (ngSubmit)="onDeleteSubmit(deleteItemForm)">
+    <p class="h4"></p>
+    <div class="text-center mt-4">
+    <input ngModel required class="form-control" placeholder="Item id" name ="Delete"  #itemName="ngModel" >
+    </div>
+    <br>
+    <div class="text-center">
+        <button  class="btn btn-block btn btn-danger" type="submit">
+            Delete item</button>
+        </div> 
+</form>
+
+<form *ngIf="readItemVisible" class="text-center formHolder" #readItemForm="ngForm" (ngSubmit)="onReadSubmit(readItemForm)">
+    <p class="h4"></p>
+    <div class ="text-center mt-4" >
+      <input ngModel required class="form-control" placeholder="Item id" name="Read" #item="ngModel">
+    </div>
+    <div class="text-center mt-3">
+        <button  class="btn btn-block btn btn-primary" type="submit">
+            Read item</button>
+        </div> 
+  </form>
+
+  <form *ngIf="createItemVisible" class="text-center formHolder" #createItemForm="ngForm" (ngSubmit)="onCreateSubmit(createItemForm)">
+    <p class="h4"></p>
+    <div class="text-center mt-4">
+    <input ngModel required  class="form-control" placeholder="Item name" name="Name"  #itemName="ngModel" >
+    </div>
+
+    <div class="text-center mt-3">
+    <input ngModel required type="number" name = "Amount" class="form-control" placeholder="Amount"  #itemAmount="ngModel">
+    </div>
+    <div class="text-center mt-2">
+        <input ngModel required type="number" name = "Inventory_Code"  class="form-control" placeholder="Inventory code"  #inventoryCode="ngModel">
+        </div>
+    <br>
+    <div class="text-center">
+        <button  class="btn btn-block btn btn-success" type="submit">
+            Create item</button>
+        </div> 
+</form>
+
+<form *ngIf="depositQuantityVisible" class="text-center formHolder" #depositItemForm="ngForm" (ngSubmit)="onDepositSubmit(depositItemForm)">
+    <p class="h4"></p>
+    <div class ="text-center mt-4" >
+        <input ngModel required class="form-control" placeholder="Item id" name="Read" #item="ngModel">
+      </div>
+    <div class="text-center mt-3">
+        <input ngModel required type="number" name = "Amount" class="form-control" placeholder="Amount"  #itemAmount="ngModel">
+        </div>
+    <br>
+    <div class="text-center">
+        <button  class="btn btn-block btn btn-warning" type="submit">
+            Deposit quantity</button>
+        </div> 
+</form>
+
+<form *ngIf="winthdrawQuantityVisible" class="text-center formHolder" #withdrawItemForm="ngForm" (ngSubmit)="onWithdrawSubmit(withdrawItemForm)">
+    <p class="h4"></p>
+    <div class ="text-center mt-4" >
+        <input ngModel required class="form-control" placeholder="Item id" name="Read" #item="ngModel">
+      </div>
+    <div class="text-center mt-3">
+        <input ngModel required type="number" name = "Amount" class="form-control" placeholder="Amount"  #itemAmount="ngModel">
+        </div>
+    <br>
+    <div class="text-center">
+        <button  class="btn btn-block btn btn-info" type="submit">
+            Withdraw quantity</button>
+        </div> 
+</form>
+
+<div class="alert result text-center mt-4 alert-danger alert-dismissible fade show " role="alert">
+  <strong>{{alertMessage}}</strong>
+</div>
